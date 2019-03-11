@@ -5,11 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.hobbstech</groupId>
-    <artifactId>sarah</artifactId>
+    <artifactId>sarah-reactor</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
         <module>sarah-parent</module>
+        <module>sarah-core-api</module>
+        <module>sarah-core-weather-management</module>
+        <module>sarah-desktop-ui</module>
+        <module>sarah-core-voice</module>
+        <module>sarah-core-entertainment</module>
+        <module>sarah-core-lighting</module>
+        <module>sarah-core-power-management</module>
+        <module>sarah-core-utils</module>
+        <module>sarah-core-water-management</module>
+        <module>sarah-core-ambient-conditions-management</module>
+        <module>sarah-core-security-management</module>
+        <module>sarah-core-remote</module>
     </modules>
 
 
