@@ -13,5 +13,23 @@
     <artifactId>sarah-core-weather-management</artifactId>
     <version>1.0.0</version>
 
+    <build>
+        <finalName>weather-management-service</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.hobbstech</groupId>
+            <artifactId>sarah-core-utils</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
 
 </project>

@@ -1,0 +1,29 @@
+server:
+  port: 8504
+
+spring:
+  application:
+    name: weather-management-service
+  datasource:
+    username: hobbs
+    password: hobbs123!@#
+    url: jdbc:mysql://localhost:3306/sarah?createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+open-weather-map:
+  api-key: d650ceb608457b4489e59832b9856f8b
+  base-url: api.openweathermap.org/data/2.5
+
+using:
+  spring:
+    schedulerFactory: true
+
+weather-update-job:
+  frequency-in-seconds: 1800
