@@ -13,5 +13,49 @@
     <artifactId>sarah-core-voice</artifactId>
     <version>1.0.0</version>
 
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/marytts-lang-en -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>marytts-lang-en</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/marytts-builder -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>marytts-builder</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/voice-cmu-slt-hsmm -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-cmu-slt-hsmm</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/voice-dfki-poppy-hsmm -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-dfki-poppy-hsmm</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/marytts-signalproc -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>marytts-signalproc</artifactId>
+            <version>5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 
 </project>
