@@ -1,4 +1,8 @@
 
+### Logs
+log
+*.log
+
 ### Eclipse template
 
 .metadata
