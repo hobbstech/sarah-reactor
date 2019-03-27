@@ -49,8 +49,8 @@ public class OpenWeatherMapCurrentWeatherDTO {
 
     }
 
-    private LocalDateTime convertFromEpochMillSeconds(Long mills) {
-        Instant instant = Instant.ofEpochMilli(mills);
+    private LocalDateTime convertFromEpochMillSeconds(Long seconds) {
+        Instant instant = Instant.ofEpochSecond(seconds);
         return instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
