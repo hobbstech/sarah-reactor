@@ -1,0 +1,19 @@
+server:
+  address: 8505
+spring:
+  profiles:
+    active: dev
+  application:
+    name: entertainment-module
+  datasource:
+    username: root
+    password: raspberry
+    url: jdbc:mysql://192.168.1.10:3306/sarah?createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy

@@ -1,0 +1,19 @@
+server:
+  port: 8505
+spring:
+  profiles:
+    active: dev
+  application:
+    name: entertainment-module
+  datasource:
+    username: hobbs
+    password: hobbs123!@#
+    url: jdbc:mysql://localhost:3306/sarah?createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy

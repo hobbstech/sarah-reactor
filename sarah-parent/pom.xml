@@ -113,14 +113,12 @@
             <version>${springfox-swagger2.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>Spring plugins</id>
-            <url>http://repo.spring.io/plugins-release/</url>
-        </repository>
-    </repositories>
-
 
 </project>

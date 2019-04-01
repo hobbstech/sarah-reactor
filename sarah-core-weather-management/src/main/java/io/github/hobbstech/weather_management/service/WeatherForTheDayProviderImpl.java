@@ -1,5 +1,6 @@
 package io.github.hobbstech.weather_management.service;
 
+import io.github.hobbstech.sarah_core_utils.exceptions.RecordNotFoundException;
 import io.github.hobbstech.weather_management.domain.ResidentialLocation;
 import io.github.hobbstech.weather_management.domain.WeatherForTheDay;
 import io.github.hobbstech.weather_management.integration.open_weather_map.current.dto.Coordinates;
@@ -9,7 +10,6 @@ import io.github.hobbstech.weather_management.repository.ResidentialLocationRepo
 import io.github.hobbstech.weather_management.repository.WeatherForTheDayRepository;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import tech.hobbs.sarah_core_utils.exceptions.RecordNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Collection;

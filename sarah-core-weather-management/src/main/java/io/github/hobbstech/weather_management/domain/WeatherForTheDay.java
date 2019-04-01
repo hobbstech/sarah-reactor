@@ -1,7 +1,7 @@
 package io.github.hobbstech.weather_management.domain;
 
+import io.github.hobbstech.sarah_core_utils.domain.BaseEntity;
 import lombok.*;
-import tech.hobbs.sarah_core_utils.domain.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

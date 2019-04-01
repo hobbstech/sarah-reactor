@@ -43,12 +43,34 @@
             <version>5.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/voice-dfki-ot-hsmm -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-dfki-ot-hsmm</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/voice-dfki-obadiah-hsmm -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-dfki-obadiah-hsmm</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.dfki.mary/voice-cmu-bdl-hsmm -->
+        <dependency>
+            <groupId>de.dfki.mary</groupId>
+            <artifactId>voice-cmu-bdl-hsmm</artifactId>
+            <version>5.2</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/de.dfki.mary/marytts-signalproc -->
         <dependency>
             <groupId>de.dfki.mary</groupId>
             <artifactId>marytts-signalproc</artifactId>
             <version>5.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -56,6 +78,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+
+        <repository>
+            <id>Spring plugins</id>
+            <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 
 
 </project>

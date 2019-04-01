@@ -1,5 +1,6 @@
 package io.github.hobbstech.sarah_voice.tts;
 
+import lombok.Getter;
 import lombok.val;
 import marytts.modules.synthesis.Voice;
 import marytts.signalproc.effects.BaseAudioEffect;
@@ -8,13 +9,11 @@ import marytts.signalproc.effects.VolumeEffect;
 import java.util.Collection;
 import java.util.HashSet;
 
-import static java.util.stream.Collectors.toSet;
-import static marytts.modules.synthesis.Voice.FEMALE;
-
 public class TTSTemplate {
 
     private static TTSTemplate defaultInstance = new TTSTemplate();
 
+    @Getter
     private final TextToSpeech textToSpeech;
 
     public static TTSTemplate getDefaultInstance(Integer volume, Integer baseAudio) {
@@ -24,8 +23,8 @@ public class TTSTemplate {
     }
 
     public static TTSTemplate getDefaultInstance() {
-        defaultInstance.setVolume(2);
-        defaultInstance.setBaseAudio(10);
+//        defaultInstance.setVolume(2);
+//        defaultInstance.setBaseAudio(10);
         return defaultInstance;
     }
 
@@ -33,10 +32,10 @@ public class TTSTemplate {
 
         textToSpeech = new TextToSpeech();
 
-        val voices = textToSpeech.getAvailableVoices()
-                .stream().filter(voice -> voice.gender().equals(FEMALE)).collect(toSet());
+        val voices = textToSpeech.getAvailableVoices();
+        //.stream().filter(voice -> voice.gender().equals(FEMALE)).collect(toSet());
 
-        Voice defaultVoice = voices.stream().filter(voice -> voice.hasName("dfki-poppy-hsmm")).findFirst()
+        Voice defaultVoice = voices.stream().filter(voice -> voice.hasName("cmu-bdl-hsmm")).findFirst()
                 .orElseGet(() -> voices.stream().findAny().get());
 
         textToSpeech.setVoice(defaultVoice.getName());

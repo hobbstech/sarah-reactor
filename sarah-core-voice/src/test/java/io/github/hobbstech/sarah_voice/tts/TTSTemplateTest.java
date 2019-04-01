@@ -8,7 +8,13 @@ class TTSTemplateTest {
     void speak() {
 
         TTSTemplate ttsTemplate = TTSTemplate.getDefaultInstance();
-        ttsTemplate.speak("Hello guys, are you tired yet");
+        ttsTemplate.speak("Hi guys. I am your house assistant! We are still in development mode");
 
+    }
+
+    @Test
+    void showVoices() {
+        TextToSpeech textToSpeech = new TextToSpeech();
+        textToSpeech.getAvailableVoices().forEach(System.out::println);
     }
 }

@@ -1,8 +1,8 @@
 package io.github.hobbstech.weather_management.domain;
 
+import io.github.hobbstech.sarah_core_utils.domain.BaseEntity;
 import io.github.hobbstech.weather_management.integration.open_weather_map.current.dto.Coordinates;
 import lombok.*;
-import tech.hobbs.sarah_core_utils.domain.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
