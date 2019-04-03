@@ -1,6 +1,5 @@
 package io.github.hobbstech.sarah_core_entertainment.music.service;
 
-import io.github.hobbstech.sarah_core_entertainment.music.model.Genre;
 import io.github.hobbstech.sarah_core_entertainment.music.model.MoodType;
 import lombok.Data;
 
@@ -9,6 +8,6 @@ public class MoodDto {
 
     private MoodType name;
 
-    private Genre genre;
+    private String genre;
 
 }

@@ -53,7 +53,7 @@ public class FileStorageServiceImpl implements FileStorageService {
             log.error("---> Uploaded file should have an original name");
             throw new IllegalStateException("Uploaded file should have an original name");
         }
-        val fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        val fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename()).replace(" ", "-");
 
         if (fileName.contains("..")) {
             throw new IllegalArgumentException("Sorry! Filename contains invalid path sequence " + fileName);

@@ -1,7 +1,6 @@
 package io.github.hobbstech.sarah_core_entertainment.music.service;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.hobbstech.sarah_core_entertainment.music.model.Genre;
 import io.github.hobbstech.sarah_core_entertainment.music.model.Mood;
 import io.github.hobbstech.sarah_core_entertainment.music.repository.MoodRepository;
 import io.github.hobbstech.sarah_core_utils.exceptions.RecordNotFoundException;
@@ -9,6 +8,7 @@ import lombok.val;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.stream.Stream;
 
 @Service
 public class MoodServiceImpl implements MoodService {
@@ -22,15 +22,18 @@ public class MoodServiceImpl implements MoodService {
     @Override
     public Mood createMood(MoodDto moodDto) {
 
-        val mood = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .convertValue(moodDto, Mood.class);
+        val mood = new Mood();
+        mood.setGenre(Stream.of(Genre.values()).filter(mood1 -> mood1.getName()
+                .equalsIgnoreCase(moodDto.getGenre())).limit(1).findFirst().orElse(Genre.DEFAULT));
+        mood.setName(moodDto.getName());
         return moodRepository.save(mood);
     }
 
     @Override
     public Mood update(MoodDto moodDto, Long id) {
         val mood = findById(id);
-        mood.setGenre(moodDto.getGenre());
+        mood.setGenre(Stream.of(Genre.values()).filter(mood1 -> mood1.getName()
+                .equalsIgnoreCase(moodDto.getGenre())).limit(1).findFirst().orElse(Genre.DEFAULT));
         moodDto.setName(moodDto.getName());
         return moodRepository.save(mood);
     }

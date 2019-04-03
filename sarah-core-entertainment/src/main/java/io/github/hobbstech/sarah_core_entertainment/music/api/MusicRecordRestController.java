@@ -43,4 +43,9 @@ public class MusicRecordRestController {
         musicRecordService.playSong(recordId);
     }
 
+    @GetMapping("/v1/stop-music")
+    public void stopPlayingMusic() {
+        musicRecordService.stopPlaying();
+    }
+
 }

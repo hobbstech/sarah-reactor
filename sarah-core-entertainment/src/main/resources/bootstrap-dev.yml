@@ -17,3 +17,7 @@ spring:
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB

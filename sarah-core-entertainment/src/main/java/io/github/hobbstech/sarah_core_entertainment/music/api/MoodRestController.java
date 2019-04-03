@@ -1,6 +1,7 @@
 package io.github.hobbstech.sarah_core_entertainment.music.api;
 
 import io.github.hobbstech.sarah_core_entertainment.music.model.Mood;
+import io.github.hobbstech.sarah_core_entertainment.music.repository.MoodRepository;
 import io.github.hobbstech.sarah_core_entertainment.music.service.MoodDto;
 import io.github.hobbstech.sarah_core_entertainment.music.service.MoodService;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,11 @@ public class MoodRestController {
 
     private final MoodService moodService;
 
-    public MoodRestController(MoodService moodService) {
+    private final MoodRepository moodRepository;
+
+    public MoodRestController(MoodService moodService, MoodRepository moodRepository) {
         this.moodService = moodService;
+        this.moodRepository = moodRepository;
     }
 
     @GetMapping("/v1/moods")
@@ -34,6 +38,11 @@ public class MoodRestController {
     @PutMapping("/v1/moods/{id}")
     public Mood updateMood(@PathVariable("id") Long id, @RequestBody MoodDto moodDto) {
         return moodService.update(moodDto, id);
+    }
+
+    @DeleteMapping("/v1/moods/{id}")
+    public void updateMood(@PathVariable("id") Long id) {
+        moodRepository.deleteById(id);
     }
 
 }

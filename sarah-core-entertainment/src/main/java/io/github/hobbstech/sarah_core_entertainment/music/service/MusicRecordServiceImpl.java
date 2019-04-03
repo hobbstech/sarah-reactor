@@ -5,17 +5,18 @@ import io.github.hobbstech.sarah_core_entertainment.music.model.MusicRecord;
 import io.github.hobbstech.sarah_core_entertainment.music.repository.MoodRepository;
 import io.github.hobbstech.sarah_core_entertainment.music.repository.MusicRecordRepository;
 import io.github.hobbstech.sarah_core_utils.files.FileStorageService;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toSet;
+
 @Service
+@Slf4j
 public class MusicRecordServiceImpl implements MusicRecordService {
 
     private final MusicRecordRepository musicRecordRepository;
@@ -32,12 +33,12 @@ public class MusicRecordServiceImpl implements MusicRecordService {
     }
 
     @Override
-    public MusicRecord uploadMusicRecord(MultipartFile multipartFile, String genre) {
+    public MusicRecord uploadMusicRecord(MultipartFile multipartFile, final String genre) {
 
         val optionalDirectory =
                 Stream.of(Genre.values())
-                        .filter(genre1 -> genre1.getName().equalsIgnoreCase(genre))
-                        .limit(1)
+                        .filter(mood1 -> mood1.getName()
+                                .equalsIgnoreCase(genre)).limit(1)
                         .map(Genre::getDirectory)
                         .findFirst();
 
@@ -67,19 +68,11 @@ public class MusicRecordServiceImpl implements MusicRecordService {
 
         val musicRecords = musicRecordRepository.findAllByGenre(mood.getGenre());
 
-        musicRecords.forEach(musicRecord -> {
+        val musicFiles = musicRecords.stream().map(MusicRecord::getFullPathName).collect(toSet());
 
-            try {
-                val resource = fileStorageService.loadFileAsResource(musicRecord.getRecordName(),
-                        mood.getGenre().getDirectory());
-                Media media = new Media(resource.getFile().toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(media);
-                mediaPlayer.play();
+        log.info("{}", musicFiles);
 
-            } catch (IOException e) {
-                throw new IllegalStateException("Failed to play " + musicRecord.getRecordName() + " due to " + e.getMessage());
-            }
-        });
+        MusicPlayer.playAudioFiles(musicFiles);
 
     }
 
@@ -88,10 +81,12 @@ public class MusicRecordServiceImpl implements MusicRecordService {
 
         val musicRecord = musicRecordRepository.findById(recordId)
                 .orElseThrow(() -> new NoSuchElementException("Music record was not found"));
-        Media media = new Media(musicRecord.getFullPathName());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+        MusicPlayer.playAudioFile(musicRecord.getFullPathName());
 
+    }
 
+    @Override
+    public void stopPlaying() {
+        MusicPlayer.stopPlaying();
     }
 }
