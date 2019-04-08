@@ -1,15 +1,24 @@
 package io.github.hobbstech.weather_management.integration.open_weather_map.current.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class Sys {
 
-    private String country;
+	@JsonProperty("pod")
+	private String pod;
 
-    private Long sunrise;
+	@JsonProperty("country")
+	private String country;
 
-    private Long sunset;
+	@JsonProperty("sunrise")
+	private Long sunrise;
 
-    private Double message;
+	@JsonProperty("sunset")
+	private Long sunset;
+
+	@JsonProperty("message")
+	private Double message;
+
 }

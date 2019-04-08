@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Getter
@@ -47,5 +48,8 @@ public class WeatherForTheDay extends BaseEntity {
 
     @Column
     private LocalDateTime requestedTime;
+
+    @Column
+    private Date date;
 
 }

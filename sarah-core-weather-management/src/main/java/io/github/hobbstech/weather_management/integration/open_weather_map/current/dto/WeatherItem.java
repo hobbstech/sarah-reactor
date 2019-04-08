@@ -1,15 +1,21 @@
 package io.github.hobbstech.weather_management.integration.open_weather_map.current.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class WeatherItem {
 
-    private String icon;
+	@JsonProperty("icon")
+	private String icon;
 
-    private String description;
+	@JsonProperty("description")
+	private String description;
 
-    private String main;
+	@JsonProperty("main")
+	private String main;
 
-    private Long id;
+	@JsonProperty("id")
+	private Integer id;
+
 }

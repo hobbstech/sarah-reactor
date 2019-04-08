@@ -16,7 +16,7 @@ import java.util.Collection;
 
 import static java.util.Comparator.comparing;
 import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toList;
 
 @Slf4j
 public class WeatherForTheDayProviderImpl implements WeatherForTheDayProvider {
@@ -97,16 +97,19 @@ public class WeatherForTheDayProviderImpl implements WeatherForTheDayProvider {
 
         val cityName = residentialLocation.getCityName();
         val coordinates = residentialLocation.getCoordinates();
-
+        log.info("---> City Name : {}", cityName);
+        log.info("---> Coordinates : {}", coordinates);
         if (nonNull(coordinates) && nonNull(coordinates.getLongitude()) && nonNull(coordinates.getLatitude())) {
             return currentWeatherService.findForecastByCoordinates(coordinates.getLatitude(),
-                    coordinates.getLongitude(), apiKey).stream()
+                    coordinates.getLongitude(), apiKey).getList().stream()
                     .map(OpenWeatherMapCurrentWeatherDTO::convertToWeatherForTheDay)
-                    .collect(toSet());
+                    .sorted(comparing(WeatherForTheDay::getDate))
+                    .collect(toList());
         } else {
-            return currentWeatherService.findForecastByCityName(cityName, apiKey).stream()
+            return currentWeatherService.findForecastByCityName(cityName, apiKey).getList().stream()
                     .map(OpenWeatherMapCurrentWeatherDTO::convertToWeatherForTheDay)
-                    .collect(toSet());
+                    .sorted(comparing(WeatherForTheDay::getDate))
+                    .collect(toList());
         }
 
     }
@@ -115,9 +118,11 @@ public class WeatherForTheDayProviderImpl implements WeatherForTheDayProvider {
     public Collection<WeatherForTheDay> getWeatherForecast(String cityName) {
 
         return currentWeatherService.findForecastByCityName(cityName, apiKey)
+                .getList()
                 .stream()
                 .map(OpenWeatherMapCurrentWeatherDTO::convertToWeatherForTheDay)
-                .collect(toSet());
+                .sorted(comparing(WeatherForTheDay::getDate))
+                .collect(toList());
 
     }
 
@@ -125,8 +130,10 @@ public class WeatherForTheDayProviderImpl implements WeatherForTheDayProvider {
     public Collection<WeatherForTheDay> getWeatherForecast(Coordinates coordinates) {
         return currentWeatherService
                 .findForecastByCoordinates(coordinates.getLongitude(), coordinates.getLatitude(), apiKey)
+                .getList()
                 .stream()
                 .map(OpenWeatherMapCurrentWeatherDTO::convertToWeatherForTheDay)
-                .collect(toSet());
+                .sorted(comparing(WeatherForTheDay::getDate))
+                .collect(toList());
     }
 }

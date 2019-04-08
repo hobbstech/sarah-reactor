@@ -12,6 +12,20 @@
 
     <artifactId>sarah-core-api</artifactId>
     <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.hobbstech</groupId>
+            <artifactId>sarah-core-entertainment</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.hobbstech</groupId>
+            <artifactId>sarah-core-weather-management</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

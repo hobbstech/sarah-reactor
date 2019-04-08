@@ -5,12 +5,10 @@ import io.github.hobbstech.sarah_core_entertainment.music.model.Mood;
 import io.github.hobbstech.sarah_core_entertainment.music.repository.MoodRepository;
 import io.github.hobbstech.sarah_core_utils.exceptions.RecordNotFoundException;
 import lombok.val;
-import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.stream.Stream;
 
-@Service
 public class MoodServiceImpl implements MoodService {
 
     private final MoodRepository moodRepository;
