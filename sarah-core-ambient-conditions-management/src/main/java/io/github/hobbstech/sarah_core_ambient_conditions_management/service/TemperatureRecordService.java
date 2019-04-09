@@ -10,6 +10,7 @@ public interface TemperatureRecordService {
 
     TemperatureRecord saveTemperature(TemperatureDto temperatureDto);
 
-    Collection<TemperatureRecord> getTemperatureRecords(Date date);
+    Collection<TemperatureRecord> getTemperatureRecordsPerDay(Date date);
 
+    Collection<TemperatureRecord> getTemperatureRecordsPerDayForRoom(Date date, Long roomId);
 }

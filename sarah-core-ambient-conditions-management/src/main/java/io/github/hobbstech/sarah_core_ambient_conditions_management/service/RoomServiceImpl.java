@@ -7,6 +7,8 @@ import io.github.hobbstech.sarah_core_ambient_conditions_management.repository.R
 import io.github.hobbstech.sarah_core_utils.exceptions.RecordNotFoundException;
 import lombok.val;
 
+import java.util.Collection;
+
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
@@ -23,10 +25,26 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room update(Long id, RoomDto roomDto) {
-        val room = roomRepository.findById(id)
-                .orElseThrow(() -> new RecordNotFoundException("Room record was not found"));
+        val room = findById(id);
         room.setName(roomDto.getName());
         room.setNumber(roomDto.getNumber());
         return roomRepository.save(room);
+    }
+
+    @Override
+    public void delete(Long id) {
+        val room = findById(id);
+        roomRepository.delete(room);
+    }
+
+    @Override
+    public Collection<Room> findAll() {
+        return roomRepository.findAll();
+    }
+
+    @Override
+    public Room findById(Long id) {
+        return roomRepository.findById(id)
+                .orElseThrow(() -> new RecordNotFoundException("Room record was not found"));
     }
 }

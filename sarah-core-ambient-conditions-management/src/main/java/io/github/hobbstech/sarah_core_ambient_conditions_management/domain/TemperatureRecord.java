@@ -3,12 +3,9 @@ package io.github.hobbstech.sarah_core_ambient_conditions_management.domain;
 import io.github.hobbstech.sarah_core_utils.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -16,10 +13,8 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 public class TemperatureRecord extends BaseEntity {
 
-    @Temporal(TemporalType.DATE)
     @Column
-    @CreationTimestamp
-    private Date date;
+    private LocalDate date;
 
     @Column
     private Double temperature;
@@ -28,6 +23,23 @@ public class TemperatureRecord extends BaseEntity {
     private Double maxTemp;
 
     @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date maxTempTime;
+
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date minTempTime;
+
+    @Column
     private Double minTemp;
+
+    @ManyToOne
+    private Room room;
+
+    @PrePersist
+    public void updatePreconditions() {
+        date = LocalDate.now();
+    }
+
 
 }
