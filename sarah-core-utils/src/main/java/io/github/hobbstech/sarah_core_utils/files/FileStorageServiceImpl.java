@@ -35,7 +35,9 @@ public class FileStorageServiceImpl implements FileStorageService {
         requireNonNull(directory, "The upload directory should not be null");
         requireNonNull(multipartFile, "The multipart file should not be null");
 
-        val storageDir = filesStorageConfigurations.getStorageMusicFolder() + directory;
+        val storageDir = filesStorageConfigurations.getStorageMusicFolder().endsWith("/") ?
+                filesStorageConfigurations.getStorageMusicFolder() + directory
+                : filesStorageConfigurations.getStorageMusicFolder() + "/" + directory;
 
         val fileStorageLocation = Paths.get(storageDir).toAbsolutePath().normalize();
 

@@ -17,6 +17,11 @@ spring:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
 
+  servlet:
+    multipart:
+      max-request-size: 1000MB
+      max-file-size: 1000MB
+
 open-weather-map:
   api-key: d650ceb608457b4489e59832b9856f8b
   base-url: api.openweathermap.org/data/2.5

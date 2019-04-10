@@ -29,7 +29,8 @@ public enum Genre {
     VOCAL("Vocal", "vocal"),
     WORLD("World", "world"),
     SOUNDTRACK("Soundtrack", "soundtrack"),
-    DEFAULT("Default", "default");
+    DEFAULT("Default", "default"),
+    GOSPEL("Gospel", "gospel");
 
     @Getter
     private final String name;
