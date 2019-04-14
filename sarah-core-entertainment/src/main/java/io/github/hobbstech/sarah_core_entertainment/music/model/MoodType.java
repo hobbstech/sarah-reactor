@@ -9,7 +9,20 @@ public enum MoodType {
     BORED("Bored"),
     TIRED("Tired"),
     SLEEPY("Sleepy"),
-    JOVIAL("Jovial");
+    JOVIAL("Jovial"),
+    FOCUS("Focus"),
+    HITS("Hits"),
+    FEEL_GOOD("Feeling Good"),
+    LONELY("Lonely"),
+    CARING("Caring"),
+    LOVED("loved"),
+    AWESOME("Awesome"),
+    RELAXING("relaxing"),
+    ANXIOUS("Anxious"),
+    HURT("Hurt"),
+    SAD("Sad"),
+    HEART_BROKEN("Heart Broken"),
+    LOST("Lost");
 
     @Getter
     private final String name;

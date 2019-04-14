@@ -2,7 +2,7 @@ package io.github.hobbstech.sara_api.ambient_conditions;
 
 import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.TemperatureRecord;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.TemperatureDto;
-import io.github.hobbstech.sarah_core_ambient_conditions_management.service.TemperatureRecordService;
+import io.github.hobbstech.sarah_core_ambient_conditions_management.service.temprature.TemperatureRecordService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;

@@ -1,8 +1,7 @@
-package io.github.hobbstech.sarah_core_ambient_conditions_management.service;
+package io.github.hobbstech.sarah_core_ambient_conditions_management.service.temprature;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.Room;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.TemperatureRecord;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.TemperatureDto;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.repository.RoomRepository;
@@ -14,7 +13,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Objects;
 
 import static java.util.Comparator.comparing;
 import static java.util.Objects.requireNonNull;
@@ -69,16 +67,9 @@ public class TemperatureRecordServiceImpl implements TemperatureRecordService {
                 });
 
         val roomId = temperatureDto.getRoomId();
-        val roomName = temperatureDto.getRoomName();
 
-        Room room;
-
-        if (Objects.nonNull(roomId))
-            room = roomRepository.findById(roomId)
-                    .orElseThrow(() -> new RecordNotFoundException("Room was not found"));
-        else
-            room = roomRepository.findByName(roomName)
-                    .orElseThrow(() -> new RecordNotFoundException("Room was not found"));
+        val room = roomRepository.findById(roomId)
+                .orElseThrow(() -> new RecordNotFoundException("Room was not found"));
 
         temperatureRecord.setRoom(room);
 

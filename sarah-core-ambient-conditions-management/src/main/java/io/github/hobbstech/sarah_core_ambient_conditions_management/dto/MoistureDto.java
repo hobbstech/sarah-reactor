@@ -3,10 +3,11 @@ package io.github.hobbstech.sarah_core_ambient_conditions_management.dto;
 import lombok.Data;
 
 @Data
-public class TemperatureDto {
+public class MoistureDto {
 
-    private Double temperature;
+    private Double humidityValue;
 
     private Long roomId;
+
 
 }

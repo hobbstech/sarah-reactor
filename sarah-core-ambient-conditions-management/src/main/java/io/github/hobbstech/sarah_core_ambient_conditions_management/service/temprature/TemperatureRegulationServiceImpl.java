@@ -1,10 +1,11 @@
-package io.github.hobbstech.sarah_core_ambient_conditions_management.service;
+package io.github.hobbstech.sarah_core_ambient_conditions_management.service.temprature;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.TemperatureSetpoint;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.TemperatureSetPointDto;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.repository.TemperatureSetpointRepository;
+import io.github.hobbstech.sarah_core_ambient_conditions_management.service.RoomService;
 import lombok.val;
 
 import java.util.Collection;

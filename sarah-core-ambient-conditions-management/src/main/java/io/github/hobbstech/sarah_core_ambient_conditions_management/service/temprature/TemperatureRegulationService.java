@@ -1,4 +1,4 @@
-package io.github.hobbstech.sarah_core_ambient_conditions_management.service;
+package io.github.hobbstech.sarah_core_ambient_conditions_management.service.temprature;
 
 import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.TemperatureSetpoint;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.TemperatureSetPointDto;
