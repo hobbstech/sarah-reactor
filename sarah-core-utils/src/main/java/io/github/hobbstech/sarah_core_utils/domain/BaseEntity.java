@@ -1,6 +1,7 @@
 package io.github.hobbstech.sarah_core_utils.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 
 @MappedSuperclass
 @Getter
+@Setter
 public class BaseEntity {
 
     @Id

@@ -18,4 +18,6 @@ public class FlameRecord extends BaseEntity {
 
     private Long flameValue;
 
+    private Boolean flameDetected;
+
 }

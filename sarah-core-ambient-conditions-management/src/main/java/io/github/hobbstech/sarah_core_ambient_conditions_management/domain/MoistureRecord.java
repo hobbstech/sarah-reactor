@@ -17,4 +17,6 @@ public class MoistureRecord extends BaseEntity {
     @ManyToOne
     private Room room;
 
+    private Boolean waterSpillagePresent;
+
 }

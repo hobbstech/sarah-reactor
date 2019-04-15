@@ -38,8 +38,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class AmbientConfig {
 
     @Bean
-    public RoomService roomService(RoomRepository roomRepository) {
-        return new RoomServiceImpl(roomRepository);
+    public RoomService roomService(RoomRepository roomRepository, TemperatureRecordRepository temperatureRecordRepository,
+                                   HumidityRecordRepository humidityRecordRepository, FlameRecordRepository flameRecordRepository,
+                                   GasRecordRepository gasRecordRepository, MotionSensorRecordRepository motionSensorRecordRepository,
+                                   MoistureRecordRepository moistureRecordRepository) {
+        return new RoomServiceImpl(roomRepository, temperatureRecordRepository, humidityRecordRepository, flameRecordRepository, gasRecordRepository, motionSensorRecordRepository, moistureRecordRepository);
     }
 
     @Bean

@@ -11,8 +11,6 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = true)
 public class Room extends BaseEntity {
 
-    private Long number;
-
     private String name;
 
 }

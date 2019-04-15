@@ -1,6 +1,7 @@
 package io.github.hobbstech.sara_api.ambient_conditions;
 
 import io.github.hobbstech.sarah_core_ambient_conditions_management.domain.Room;
+import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.DetailedRoomDto;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.dto.RoomDto;
 import io.github.hobbstech.sarah_core_ambient_conditions_management.service.RoomService;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +38,8 @@ public class RoomsRestController {
     }
 
     @GetMapping("/v1/rooms/{roomId}")
-    public Room findById(@PathVariable("roomId") Long roomId) {
-        return roomService.findById(roomId);
+    public DetailedRoomDto findById(@PathVariable("roomId") Long roomId) {
+        return roomService.findDetailedById(roomId);
     }
 
 }

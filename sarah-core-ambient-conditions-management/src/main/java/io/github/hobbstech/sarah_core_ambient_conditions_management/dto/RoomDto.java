@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class RoomDto {
 
-    private Long number;
-
     private String name;
 
 }
