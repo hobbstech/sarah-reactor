@@ -10,6 +10,7 @@ import lombok.val;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
@@ -88,5 +89,31 @@ public class MusicRecordServiceImpl implements MusicRecordService {
     @Override
     public void stopPlaying() {
         MusicPlayer.stopPlaying();
+    }
+
+    @Override
+    public Collection<MusicRecord> findMoodMusic(Long moodId) {
+        val mood = moodRepository.findById(moodId)
+                .orElseThrow(() -> new NoSuchElementException("Mood record was not found"));
+        return musicRecordRepository.findAllByGenre(mood.getGenre());
+    }
+
+    @Override
+    public PlayingStatus getPlayingStatus() {
+
+        boolean isSongComplete;
+
+        try {
+            isSongComplete = MusicPlayer.getInstance().getPlayer().isComplete();
+        } catch (NullPointerException ex) {
+            return PlayingStatus.STOPPED;
+        }
+
+        if (isSongComplete) {
+            return PlayingStatus.STOPPED;
+        } else {
+            return PlayingStatus.PLAYING;
+        }
+
     }
 }

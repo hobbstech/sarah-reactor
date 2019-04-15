@@ -3,12 +3,15 @@ package io.github.hobbstech.sara_api.entertainment.music;
 import io.github.hobbstech.sarah_core_entertainment.music.model.MusicRecord;
 import io.github.hobbstech.sarah_core_entertainment.music.repository.MusicRecordRepository;
 import io.github.hobbstech.sarah_core_entertainment.music.service.MusicRecordService;
+import io.github.hobbstech.sarah_core_entertainment.music.service.PlayingStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Collection;
 
 @RestController
 public class MusicRecordRestController {
@@ -32,6 +35,11 @@ public class MusicRecordRestController {
         musicRecordService.playMoodMusic(moodId);
     }
 
+    @GetMapping("/v1/music-records/mood/{moodId}")
+    public Collection<MusicRecord> getMoodMusic(@PathVariable("moodId") Long moodId) {
+        return musicRecordService.findMoodMusic(moodId);
+    }
+
     @GetMapping("/v1/music-records")
     public Page<MusicRecord> findAll(@PageableDefault(size = 20, sort = "genre",
             direction = Sort.Direction.ASC) Pageable pageable) {
@@ -46,6 +54,11 @@ public class MusicRecordRestController {
     @GetMapping("/v1/stop-music")
     public void stopPlayingMusic() {
         musicRecordService.stopPlaying();
+    }
+
+    @GetMapping("/v1/playing-status")
+    public PlayingStatus getPlayingStatus() {
+        return musicRecordService.getPlayingStatus();
     }
 
 }
