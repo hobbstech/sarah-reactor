@@ -1,5 +1,6 @@
 package io.github.hobbstech.weather_management.service.synchronization.config;
 
+import io.github.hobbstech.sarah_core_utils.core.AutoWiringSpringBeanJobFactory;
 import io.github.hobbstech.weather_management.service.synchronization.DayWeatherUpdateJob;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
@@ -23,15 +24,6 @@ public class QuartzWeatherSyncConfig {
     public QuartzWeatherSyncConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
-
-//    @Bean
-//    public DayWeatherUpdateJob dayWeatherUpdateJob(WeatherForTheDayRepository weatherForTheDayRepository,
-//                                                   WeatherForTheDayProvider weatherForTheDayProvider,
-//                                                   ResidentialLocationRepository residentialLocationRepository){
-//
-//        return new DayWeatherUpdateJob(weatherForTheDayRepository, weatherForTheDayProvider, residentialLocationRepository);
-//
-//    }
 
     @Bean
     public JobDetail dayWeatherUpdateJobDetail() {

@@ -1,4 +1,4 @@
-package io.github.hobbstech.weather_management.service.synchronization.config;
+package io.github.hobbstech.sarah_core_utils.core;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.BeansException;
