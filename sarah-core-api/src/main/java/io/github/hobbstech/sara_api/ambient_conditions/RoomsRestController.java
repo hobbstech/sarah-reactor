@@ -42,4 +42,19 @@ public class RoomsRestController {
         return roomService.findDetailedById(roomId);
     }
 
+    @PostMapping("/v1/rooms/{roomId}/lights")
+    public Room turnLights(@PathVariable("roomId") Long roomId, @RequestParam("turnOn") boolean turnOn) {
+        return roomService.turnLights(roomId, turnOn);
+    }
+
+    @PostMapping("/v1/rooms/all/lights")
+    public void turnLightsWholeHouse(@RequestParam("turnOn") boolean turnOn) {
+        roomService.turnLights(turnOn);
+    }
+
+    @GetMapping("/v1/rooms/{roomId}/lights")
+    public boolean getLights(@PathVariable("roomId") Long roomId) {
+        return findById(roomId).getLightsOn();
+    }
+
 }

@@ -25,8 +25,9 @@ public class MusicRecordRestController {
         this.musicRecordRepository = musicRecordRepository;
     }
 
-    @PostMapping("/v1/upload-music")
-    public MusicRecord uploadMusic(@RequestParam("file") MultipartFile file, @RequestParam("genre") String genre) {
+    @PostMapping("/v1/upload-music/{genre}")
+    public MusicRecord uploadMusic(@RequestParam("file") MultipartFile file,
+                                   @PathVariable("genre") String genre) {
         return musicRecordService.uploadMusicRecord(file, genre);
     }
 

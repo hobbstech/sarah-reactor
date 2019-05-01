@@ -34,4 +34,4 @@ weather-update-job:
   frequency-in-seconds: 1800
 
 power-utilization-update-job:
-  frequency-in-seconds: 10
+  frequency-in-seconds: 1800
