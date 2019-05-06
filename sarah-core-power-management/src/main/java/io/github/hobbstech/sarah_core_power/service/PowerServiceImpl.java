@@ -66,7 +66,7 @@ public class PowerServiceImpl implements PowerService {
             val averagePower = powerRecords.parallelStream().mapToDouble(PowerRecord::getPower)
                     .average().orElse(0);
 
-            val kiloWattHourDayUsage = averagePower * 24;
+            val kiloWattHourDayUsage = averagePower * 24 / 1000;
 
             val powerUtilization = PowerUtilizationRecord.builder()
                     .dayAvgPowerUsage(kiloWattHourDayUsage)

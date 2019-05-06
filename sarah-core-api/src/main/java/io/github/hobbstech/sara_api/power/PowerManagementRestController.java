@@ -30,7 +30,8 @@ public class PowerManagementRestController {
 
     }
 
-    @PostMapping("/v1/power-records")
+    @PostMapping("/v1/power")
+
     public PowerRecord savePowerRecord(@RequestBody PowerRecordDto powerRecordDto) {
         return powerService.savePowerRecord(powerRecordDto);
     }

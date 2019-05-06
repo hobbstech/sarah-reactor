@@ -35,7 +35,7 @@ public class TTSTemplate {
         val voices = textToSpeech.getAvailableVoices();
         //.stream().filter(voice -> voice.gender().equals(FEMALE)).collect(toSet());
 
-        Voice defaultVoice = voices.stream().filter(voice -> voice.hasName("cmu-slt-hsmm")).findFirst()
+        Voice defaultVoice = voices.stream().filter(voice -> voice.hasName("cmu-bdl-hsmm")).findFirst()
                 .orElseGet(() -> voices.stream().findAny().get());
 
         textToSpeech.setVoice(defaultVoice.getName());

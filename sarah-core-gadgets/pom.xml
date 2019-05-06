@@ -10,8 +10,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sarah-core-remote</artifactId>
-    <version>1.0.0</version>
+    <artifactId>sarah-core-gadgets</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.hobbstech</groupId>
+            <artifactId>sarah-core-utils</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

@@ -19,7 +19,6 @@
         <module>sarah-parent</module>
         <module>sarah-core-api</module>
         <module>sarah-core-weather-management</module>
-        <module>sarah-desktop-ui</module>
         <module>sarah-core-voice</module>
         <module>sarah-core-entertainment</module>
         <module>sarah-core-lighting</module>
@@ -27,8 +26,7 @@
         <module>sarah-core-utils</module>
         <module>sarah-core-water-management</module>
         <module>sarah-core-ambient-conditions-management</module>
-        <module>sarah-core-security-management</module>
-        <module>sarah-core-remote</module>
+        <module>sarah-core-gadgets</module>
     </modules>
 
 

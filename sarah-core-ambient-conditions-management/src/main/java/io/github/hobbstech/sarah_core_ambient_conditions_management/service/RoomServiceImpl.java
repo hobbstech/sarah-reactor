@@ -98,4 +98,18 @@ public class RoomServiceImpl implements RoomService {
 
         return detailedRoomDto;
     }
+
+    @Override
+    public Room turnLights(Long roomId, boolean turnOn) {
+        var room = roomRepository.findById(roomId).orElseThrow();
+        room.setLightsOn(turnOn);
+        return roomRepository.save(room);
+    }
+
+    @Override
+    public void turnLights(boolean turnOn) {
+        var rooms = roomRepository.findAll();
+        rooms.forEach(room -> room.setLightsOn(turnOn));
+        roomRepository.saveAll(rooms);
+    }
 }

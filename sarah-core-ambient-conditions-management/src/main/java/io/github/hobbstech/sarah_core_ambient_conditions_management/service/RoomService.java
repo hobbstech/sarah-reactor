@@ -7,4 +7,8 @@ import io.github.hobbstech.sarah_core_utils.service.AbstractCrudService;
 
 public interface RoomService extends AbstractCrudService<RoomDto, Room, Long> {
     DetailedRoomDto findDetailedById(Long roomId);
+
+    Room turnLights(Long roomId, boolean turnOn);
+
+    void turnLights(boolean turnOn);
 }

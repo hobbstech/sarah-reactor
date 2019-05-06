@@ -13,4 +13,6 @@ public class Room extends BaseEntity {
 
     private String name;
 
+    private Boolean lightsOn;
+
 }

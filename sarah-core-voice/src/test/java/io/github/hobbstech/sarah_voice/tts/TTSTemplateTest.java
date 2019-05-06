@@ -8,7 +8,7 @@ class TTSTemplateTest {
     void speak() {
 
         TTSTemplate ttsTemplate = TTSTemplate.getDefaultInstance();
-        ttsTemplate.speak("Hi guys. I am your house assistant! We are still in development mode");
+        ttsTemplate.speak("Hi guys. I am Friday. i am your house assistant! We are still in development mode");
 
     }
 

@@ -4,4 +4,7 @@ import io.github.hobbstech.sarah_core_power.model.PowerUtilizationRecord;
 import io.github.hobbstech.sarah_core_utils.repository.BaseRepository;
 
 public interface PowerUtilizationRecordRepository extends BaseRepository<PowerUtilizationRecord> {
+
+    PowerUtilizationRecord findTop1ByRoom_IdOrderByDateCreatedDesc(Long roomId);
+
 }
